@@ -1,7 +1,26 @@
 import Image from 'next/image'
-import React from 'react'
+import { notFound } from 'next/navigation'
 
-const BlogPost = () => {
+async function getData(id) {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    cache: 'no-store'
+  })
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    // throw new Error('Failed to fetch data')
+    return notFound()
+  }
+
+  return res.json()
+}
+
+const BlogPost = async ({ params }) => {
+  const data = await getData(params.id)
+
   return (
     <div className='container '>
       <div className='grid grid-cols-2'>
