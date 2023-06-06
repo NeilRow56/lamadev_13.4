@@ -4,7 +4,7 @@ import React from 'react'
 
 async function getData() {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-    next: { revalidate: 10 }
+    cache: 'no-store'
   })
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
