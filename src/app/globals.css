@@ -1,14 +1,26 @@
+/* body {
+  color: #000;
+  background-color: #fff;
+}
+
+[data-theme='dark'] body {
+  color: #fff;
+  background-color: #000;
+} */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    #__next {
-      @apply contents;
-    }
-  
-    
-    .primary-button {
-      @apply rounded bg-[#53c28b] py-2 px-4 shadow  text-black outline-none hover:bg-amber-300  active:bg-amber-700;
-    }
+  #__next {
+    @apply contents;
   }
+
+  body {
+    @apply flex h-full flex-col;
+  }
+  .primary-button {
+    @apply rounded bg-[#53c28b] px-4 py-2 text-black  shadow outline-none hover:bg-amber-300  active:bg-amber-700;
+  }
+}
