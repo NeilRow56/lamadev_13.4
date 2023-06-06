@@ -39,7 +39,7 @@ const Dashboard = () => {
   //   getData()
   // }, [])
 
-  //NEW WAY TO FETCH DATA
+  //NEW WAY TO FETCH DATA USING SWR
   const fetcher = (...args) => fetch(...args).then(res => res.json())
 
   const { data, error, isLoading } = useSWR(
@@ -47,7 +47,6 @@ const Dashboard = () => {
     fetcher
   )
 
-  console.log(data)
   return <div>Dashboard</div>
 }
 
