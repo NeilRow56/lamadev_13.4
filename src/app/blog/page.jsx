@@ -29,23 +29,24 @@ const Blog = async () => {
       <div className='container mb-4'>
         {data.map(item => (
           <div key={item.id} className=' grid grid-cols-3 gap-4'>
-            <Link href='/blog/id'>
-              <div className='relative col-span-1 h-40 '>
+            <Link href={`/blog/${item._id}`}>
+              <div className=' col-span-1 mb-4 '>
                 <Image
-                  src='https://images.pexels.com/photos/2103127/pexels-photo-2103127.jpeg'
+                  src={item.img}
                   alt='Hero image'
-                  fill={true}
+                  width={400}
+                  height={250}
                   className=' mx-auto object-cover '
                 />
               </div>
               <div className=' mb-6 flex w-full flex-col'>
-                <h1 className='text-red-500'>Lot number: {item.id}</h1>
+                <h1 className='mb-2 text-red-500'>Lot number: {item._id}</h1>
                 <p className='font-bold'>{item.title}</p>
               </div>
             </Link>
             <div className='  col-span-2 h-40 p-8'>
               <h1 className='py-2 text-2xl font-bold'>{item.title}</h1>
-              <p className=''>{item.body}.</p>
+              <p className=''>{item.desc}.</p>
             </div>
           </div>
         ))}
